@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    public float speed = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,11 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float verticalMovement = Input.GetAxis("Vertical");
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(
+            0,
+            verticalMovement * speed
+        );
     }
 }
