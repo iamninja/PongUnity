@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public float difficultyMultiplier = 1.3f;
     public float minXspeed = 0.8f;
     public float maxXspeed = 1.2f;
     public float minYspeed = 0.8f;
@@ -57,8 +58,8 @@ public class Ball : MonoBehaviour
             if (collider.transform.position.x < this.transform.position.x && ballRigidbody.velocity.x < 0)
             {
                 ballRigidbody.velocity = new Vector2(
-                    -ballRigidbody.velocity.x,
-                    ballRigidbody.velocity.y
+                    -ballRigidbody.velocity.x * difficultyMultiplier,
+                    ballRigidbody.velocity.y * difficultyMultiplier
                 );
             }
 
@@ -66,8 +67,8 @@ public class Ball : MonoBehaviour
             if (collider.transform.position.x > this.transform.position.x && ballRigidbody.velocity.x > 0)
             {
                 ballRigidbody.velocity = new Vector2(
-                    -ballRigidbody.velocity.x,
-                    ballRigidbody.velocity.y
+                    -ballRigidbody.velocity.x * difficultyMultiplier,
+                    ballRigidbody.velocity.y * difficultyMultiplier
                 );
             }
         }
