@@ -34,6 +34,8 @@ public class Ball : MonoBehaviour
     {
         if (collider.tag == "Bound")
         {
+            GetComponent<AudioSource>().Play();
+
             // Collided with top bound
             if (collider.transform.position.y > this.transform.position.y && ballRigidbody.velocity.y > 0)
             {
@@ -54,6 +56,8 @@ public class Ball : MonoBehaviour
         }
         else if (collider.tag == "Paddle")
         {
+            GetComponent<AudioSource>().Play();
+
             // Collided with left paddle
             if (collider.transform.position.x < this.transform.position.x && ballRigidbody.velocity.x < 0)
             {
